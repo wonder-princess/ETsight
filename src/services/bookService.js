@@ -1,4 +1,8 @@
 import axios from 'axios';
 
-// eslint-disable-next-line
+export const getBooks = async () => {
+  const { data } = await axios.get('/books');
+  return data;
+};
+
 export const postBook = (title, image) => axios.post('/books', { title, image });

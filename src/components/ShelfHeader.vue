@@ -6,7 +6,11 @@
           <b-navbar-brand href="./index.html">
             <img src="@/assets/logo.png" alt="Bookshelf" />
           </b-navbar-brand>
-          <shelf-modal class="ml-auto"></shelf-modal>
+          <shelf-modal
+            class="ml-auto"
+            @add-book="onAddBook"
+          >
+          </shelf-modal>
         </b-navbar>
       </b-col>
     </b-row>
@@ -27,10 +31,15 @@ export default {
   components: {
     BCol,
     BContainer,
+    ShelfModal,
     BNavbar,
     BNavbarBrand,
     BRow,
-    ShelfModal,
+  },
+  methods: {
+    onAddBook(book) {
+      this.$emit('add-book', book);
+    },
   },
 };
 </script>
